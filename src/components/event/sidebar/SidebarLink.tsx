@@ -1,4 +1,4 @@
-import { forwardRef, useRef, useState } from "react";
+import { forwardRef } from "react";
 import { FunctionComponent } from "react";
 import { NavLink } from "react-router-dom";
 import { SidebarPopover } from "./SidebarPopover";

@@ -1,4 +1,3 @@
-import { render } from "@testing-library/react";
 import { DropdownButton } from "components/button/DropdownButton";
 import { HorizontalInfoCard, VerticalInfoCard } from "components/InfoCard";
 import { LoadingIndicator } from "components/LoadingIndicator/LoadingIndicator";
