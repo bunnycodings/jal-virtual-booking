@@ -167,6 +167,25 @@ const jaTranslations: { translations: Translations } = {
       preferences: '設定'
     },
     
+    // Slot Notifications
+    slotConfirmed: 'スロット確認済み',
+    slotConfirmedSubtitle: 'スロットが正常に確認されました！',
+    slotScheduled: 'スロット予定',
+    slotScheduledSubtitle: 'スロットが正常に予定されました！',
+    slotCancelled: 'スロットキャンセル',
+    slotCancelledSubtitle: 'スロットがキャンセルされました。',
+    scheduleConfirmation: '予定確認',
+    scheduleConfirmationSubtitle: 'スロット予約を確認してください',
+    scheduleConfirmationAlert: '確認する前に、すべての情報が正しいことを確認してください。',
+    confirmSchedule: '予定を確認',
+    
+    // Slot Actions
+    confirmFlight: 'フライト確認',
+    cancelFlight: 'フライトキャンセル',
+    waitToConfirm: '確認待ち',
+    cancelFlightConfirmation: 'このフライトをキャンセルしてもよろしいですか？',
+    backToSlots: 'マイスロットに戻る',
+    
     // Footer
     copyright: '© 2024 日本航空バーチャル',
     jalVirtual: 'JALバーチャル',

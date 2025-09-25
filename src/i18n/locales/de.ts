@@ -150,6 +150,25 @@ const deTranslations: { translations: Translations } = {
       preferences: 'Einstellungen'
     },
     
+    // Slot Notifications
+    slotConfirmed: 'Slot bestätigt',
+    slotConfirmedSubtitle: 'Ihr Slot wurde erfolgreich bestätigt!',
+    slotScheduled: 'Slot geplant',
+    slotScheduledSubtitle: 'Ihr Slot wurde erfolgreich geplant!',
+    slotCancelled: 'Slot storniert',
+    slotCancelledSubtitle: 'Ihr Slot wurde storniert.',
+    scheduleConfirmation: 'Planungsbestätigung',
+    scheduleConfirmationSubtitle: 'Bitte bestätigen Sie Ihre Slot-Buchung',
+    scheduleConfirmationAlert: 'Bitte stellen Sie sicher, dass alle Informationen korrekt sind, bevor Sie bestätigen.',
+    confirmSchedule: 'Planung bestätigen',
+    
+    // Slot Actions
+    confirmFlight: 'Flug bestätigen',
+    cancelFlight: 'Flug stornieren',
+    waitToConfirm: 'Warten auf Bestätigung',
+    cancelFlightConfirmation: 'Sind Sie sicher, dass Sie diesen Flug stornieren möchten?',
+    backToSlots: 'Zurück zu meinen Slots',
+    
     copyright: '© 2024 Japan Airlines Virtual',
     jalVirtual: 'JAL Virtual',
     bookingSystem: 'Buchungssystem',

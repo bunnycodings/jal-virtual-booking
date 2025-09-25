@@ -11,7 +11,7 @@ export enum BoardingPassType {
 interface User {
   firstName: string
   lastName: string
-  vid: string
+  jalId: string
 }
 
 interface Airport {
@@ -130,10 +130,10 @@ export function BoardingPass({
               </div>
               <div className="text-right">
                 <div className="text-sm font-bold text-gray-800">
-                  {user.vid}
+                  {user.jalId}
                 </div>
                 <div className="text-xs text-gray-600">
-                  VID
+                  JAL ID
                 </div>
               </div>
             </div>

@@ -5,7 +5,6 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { SlotInformationLayout } from '@/components/SlotInformationLayout'
 import { Button } from '@/components/ui/Button'
 import { useTranslation } from '@/hooks/useTranslation'
-import { CheckCircle } from 'lucide-react'
 
 export default function SlotConfirmed() {
   const [eventId, setEventId] = useState<string | null>(null)
@@ -46,7 +45,7 @@ export default function SlotConfirmed() {
       }
       image={
         <div className="flex justify-center">
-          <CheckCircle className="w-48 h-48 text-green-500" />
+          <img width={183} height={183} src="/icons/check-green.svg" alt="Slot confirmed" />
         </div>
       }
       actions={

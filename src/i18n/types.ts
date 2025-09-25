@@ -78,7 +78,6 @@ export interface Translations {
   bookingStatus: string
   pending: string
   confirmed: string
-  cancelled: string
   rejected: string
   
   // Flights

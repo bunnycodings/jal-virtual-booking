@@ -5,7 +5,6 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { SlotInformationLayout } from '@/components/SlotInformationLayout'
 import { Button } from '@/components/ui/Button'
 import { useTranslation } from '@/hooks/useTranslation'
-import { Calendar } from 'lucide-react'
 
 export default function SlotScheduled() {
   const [eventId, setEventId] = useState<string | null>(null)
@@ -46,7 +45,7 @@ export default function SlotScheduled() {
       }
       image={
         <div className="flex justify-center">
-          <Calendar className="w-48 h-48 text-blue-500" />
+          <img width={183} height={183} src="/icons/check-green.svg" alt="Slot scheduled" />
         </div>
       }
       actions={

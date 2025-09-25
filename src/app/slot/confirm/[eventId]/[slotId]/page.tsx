@@ -63,7 +63,7 @@ export default function ConfirmSchedule() {
         eventId: Number(eventId),
       }
 
-      let requestBody = mutationParams
+      let requestBody: any = mutationParams
 
       if (isPrivateSlot()) {
         const privateSlotData = extractSlotParamsFromUrl()
@@ -151,6 +151,11 @@ export default function ConfirmSchedule() {
                 </div>
               </div>
             </div>
+          </div>
+          
+          {/* Globe Image */}
+          <div className="hidden xl:block w-full max-w-[28rem] mx-auto mt-8">
+            <img className="w-full max-w-[30rem]" alt="globe" src="/icons/globe.svg" width={430} height={466} />
           </div>
         </div>
       </div>

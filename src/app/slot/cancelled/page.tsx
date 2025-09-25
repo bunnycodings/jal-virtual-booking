@@ -5,7 +5,6 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { SlotInformationLayout } from '@/components/SlotInformationLayout'
 import { Button } from '@/components/ui/Button'
 import { useTranslation } from '@/hooks/useTranslation'
-import { XCircle } from 'lucide-react'
 
 export default function SlotCancelled() {
   const [eventId, setEventId] = useState<string | null>(null)
@@ -46,7 +45,7 @@ export default function SlotCancelled() {
       }
       image={
         <div className="flex justify-center">
-          <XCircle className="w-48 h-48 text-red-500" />
+          <img width={183} height={183} src="/icons/trash-red.svg" alt="Slot cancelled" />
         </div>
       }
       actions={

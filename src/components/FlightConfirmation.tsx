@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CheckCircle, XCircle, AlertCircle, Clock, Plane, MapPin, Calendar } from 'lucide-react'
-import BoardingPass from './BoardingPass'
+import { BoardingPass } from './BoardingPass'
 
 interface FlightConfirmationProps {
   booking: {
@@ -22,10 +22,10 @@ interface FlightConfirmationProps {
     createdAt: string
   }
   user: {
-    firstName?: string
-    lastName?: string
+    firstName: string
+    lastName: string
     callsign?: string
-    jalId?: string
+    jalId: string
   }
   onClose: () => void
   theme?: 'light' | 'dark'
