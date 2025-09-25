@@ -13,7 +13,7 @@ import { useCallback } from "react";
 interface IAuthContext {
   signed: boolean;
   token: string;
-  signIn: (ivaoToken: string) => Promise<void>;
+  signIn: (jalId: string) => Promise<void>;
   signOut: () => void;
   refreshToken: () => void;
 }
@@ -37,8 +37,8 @@ export const AuthProvider: FunctionComponent = ({ children }) => {
   const navigate = useNavigate();
   const [token, setToken] = useState<string>(localStorage.getItem("token") || "");
 
-  const signIn = useCallback(async (ivaoToken: string) => {
-    const { jwt } = await authClient.auth(ivaoToken);
+  const signIn = useCallback(async (jalId: string) => {
+    const { jwt } = await authClient.auth(jalId);
     setToken(jwt);
     localStorage.setItem("token", jwt);
   }, [authClient]);

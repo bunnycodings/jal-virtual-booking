@@ -155,7 +155,7 @@ const BoardingPassLeftSide: FunctionComponent<BoardingPassProps> = ({
               cumprir todas as orientações disponíveis no briefing de piloto
             </div>
 
-            <QrCode value="https://br.ivao.aero" size={76} renderAs="svg" />
+            <QrCode value="https://crew.jalvirtual.com" size={76} renderAs="svg" />
           </div>
         </div>
       </div>

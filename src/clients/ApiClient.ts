@@ -31,8 +31,8 @@ export class ApiClient {
     this.axios = axios;
   }
 
-  async auth(ivaoToken: string) {
-    const payload = { "ivao-token": ivaoToken }
+  async auth(jalId: string) {
+    const payload = { "jal-id": jalId }
     const { data } = await this.axios.post<AuthResponse>("/auth", payload)
     this.token = data.jwt;
     return data

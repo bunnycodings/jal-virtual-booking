@@ -9,7 +9,7 @@ const esTranslations: { translations: Translations } = {
       see: 'Ver'
     },
     footer: {
-      copyrightMessage: '© 2021 International Virtual Aviation Organisation - IVAO Brazil. All Rights Reserved.',
+      copyrightMessage: '© 2024 Japan Airlines Virtual. Todos los derechos reservados.',
       privacyPolicyName: 'Politica de Privacidad',
       termsOfUseName: 'Terminos de uso',
     },

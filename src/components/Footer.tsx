@@ -12,7 +12,7 @@ export const Footer: FunctionComponent = () => {
                 <FooterText>
                     <a 
                         className="underline" 
-                        href="https://wiki.ivao.aero/home/ivao/privacypolicy" 
+                        href="https://crew.jalvirtual.com/privacy" 
                         target="_blank" 
                         rel="noreferrer"
                     >
@@ -21,7 +21,7 @@ export const Footer: FunctionComponent = () => {
                     &nbsp;|&nbsp;
                     <a 
                         className="underline" 
-                        href="https://wiki.ivao.aero/home/ivao/terms-of-use" 
+                        href="https://crew.jalvirtual.com/terms" 
                         target="_blank" 
                         rel="noreferrer"
                     >

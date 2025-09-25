@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 
 export default function LoginPage() {
     const [urlParams] = useSearchParams();
-    const ivaoToken = urlParams.get("IVAOTOKEN");
+    const jalId = urlParams.get("JALID");
 
     const { signIn } = useContext(AuthContext);
     const { signed, token } = useContext(AuthContext);
@@ -25,16 +25,16 @@ export default function LoginPage() {
         }
 
         const redirectUrlParam = urlParams.get("redirect");
-        if (redirectUrlParam && redirectUrlParam.indexOf("IVAOTOKEN") !== -1) {
+        if (redirectUrlParam && redirectUrlParam.indexOf("JALID") !== -1) {
             /*
-                Se o servidor estiver rodando em localhost:3000, o site de login da IVAO irá redirecionar com uma query inválida
-                Ex: new URLSearchParams(window.location.search).get("redirect") = /?IVAOTOKEN=error
+                Se o servidor estiver rodando em localhost:3000, o site de login da JAL Virtual irá redirecionar com uma query inválida
+                Ex: new URLSearchParams(window.location.search).get("redirect") = /?JALID=error
             */
-            throw new Error(`The IVAO Login service rejected the request. The server is in ivao.aero domain? Token query: ${redirectUrlParam}`);
+            throw new Error(`The JAL Virtual Login service rejected the request. The server is in jalvirtual.com domain? Token query: ${redirectUrlParam}`);
         }
 
-        if (ivaoToken) {
-            signIn(ivaoToken);
+        if (jalId) {
+            signIn(jalId);
             return;
         }
 
@@ -43,9 +43,9 @@ export default function LoginPage() {
             locationState = location.state;
         }
 
-        const ivaoLoginUrl = "https://login.ivao.aero/index.php?url={url}";
+        const jalLoginUrl = "https://crew.jalvirtual.com/login?url={url}";
         const baseUrl = window.location.href;
-        let loginUrl = ivaoLoginUrl.replace("{url}", `${baseUrl}`);
+        let loginUrl = jalLoginUrl.replace("{url}", `${baseUrl}`);
 
         const redirectPath = locationState?.from?.pathname;
         if (redirectPath) {
@@ -53,7 +53,7 @@ export default function LoginPage() {
         }
 
         window.location.href = loginUrl;
-    }, [ivaoToken, urlParams, signIn, token, location.state]);
+    }, [jalId, urlParams, signIn, token, location.state]);
 
     return (
         <LoadingIndicator />
