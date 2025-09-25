@@ -25,6 +25,15 @@ export interface Translations {
   createEvent: string
   editEvent: string
   deleteEvent: string
+  eventsFound: string
+  loadMoreEvents: string
+  noEventsFound: string
+  eventType: string
+  eventStatus: string
+  created: string
+  active: string
+  completed: string
+  cancelled: string
   eventTitle: string
   eventDescription: string
   eventDate: string
@@ -36,6 +45,30 @@ export interface Translations {
   maxSlots: string
   availableSlots: string
   bookedSlots: string
+  eventDetails: string
+  eventSlots: string
+  pilotBriefing: string
+  atcBriefing: string
+  sceneries: string
+  freeware: string
+  payware: string
+  bookSlot: string
+  slotType: string
+  landing: string
+  private: string
+  flightNumber: string
+  airline: string
+  aircraftType: string
+  gate: string
+  terminal: string
+  status: string
+  onTime: string
+  delayed: string
+  noFlightsFound: string
+  unableToBook: string
+  filter: string
+  clear: string
+  search: string
   
   // Bookings
   myBookings: string
@@ -51,13 +84,6 @@ export interface Translations {
   // Flights
   departures: string
   arrivals: string
-  flightNumber: string
-  aircraftType: string
-  gate: string
-  terminal: string
-  status: string
-  onTime: string
-  delayed: string
   
   // Profile
   personalInfo: string
@@ -82,9 +108,6 @@ export interface Translations {
   delete: string
   edit: string
   create: string
-  search: string
-  filter: string
-  clear: string
   loading: string
   error: string
   success: string
@@ -141,6 +164,25 @@ export interface Translations {
     marketing: string
     preferences: string
   }
+  
+  // Slot Notifications
+  slotConfirmed: string
+  slotConfirmedSubtitle: string
+  slotScheduled: string
+  slotScheduledSubtitle: string
+  slotCancelled: string
+  slotCancelledSubtitle: string
+  scheduleConfirmation: string
+  scheduleConfirmationSubtitle: string
+  scheduleConfirmationAlert: string
+  confirmSchedule: string
+  
+  // Slot Actions
+  confirmFlight: string
+  cancelFlight: string
+  waitToConfirm: string
+  cancelFlightConfirmation: string
+  backToSlots: string
   
   // Footer
   copyright: string

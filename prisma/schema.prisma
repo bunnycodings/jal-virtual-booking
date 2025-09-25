@@ -33,23 +33,26 @@ model User {
 }
 
 model Event {
-  id          String   @id @default(cuid())
-  title       String
-  description String?
-  date        DateTime
-  startTime   String
-  endTime     String
-  departure   String
-  arrival     String
-  aircraft    String?
-  maxSlots    Int      @default(50)
-  isActive    Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id             String   @id @default(cuid())
+  title          String
+  description    String?
+  date           DateTime
+  startTime      String
+  endTime        String
+  departure      String
+  arrival        String
+  aircraft       String?
+  maxSlots       Int      @default(50)
+  isActive       Boolean  @default(true)
+  pilotBriefing  String?
+  atcBriefing    String?
+  sceneries      String?  // JSON string for scenery data
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
   
-  adminId     String
-  admin       User     @relation("EventAdmin", fields: [adminId], references: [id])
-  bookings    Booking[]
+  adminId        String
+  admin          User     @relation("EventAdmin", fields: [adminId], references: [id])
+  bookings       Booking[]
   
   @@map("events")
 }
@@ -61,6 +64,9 @@ model Booking {
   callsign  String
   aircraft  String
   status    BookingStatus @default(PENDING)
+  slotType  SlotType?
+  gate      String?
+  terminal  String?
   notes     String?
   createdAt DateTime    @default(now())
   updatedAt DateTime    @updatedAt
@@ -112,4 +118,10 @@ enum FlightStatus {
 enum FlightType {
   DEPARTURE
   ARRIVAL
+}
+
+enum SlotType {
+  DEPARTURE
+  LANDING
+  PRIVATE
 }

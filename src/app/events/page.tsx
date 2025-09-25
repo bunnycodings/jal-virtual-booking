@@ -1,47 +1,26 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import Layout from '@/components/Layout'
+import { Fragment, useState, useEffect } from 'react'
+import { EventListLayout } from '@/components/EventListLayout'
+import { EventCard } from '@/components/EventCard'
+import { Button } from '@/components/ui/Button'
+import { LoadingIndicator } from '@/components/LoadingIndicator'
 import CreateEventModal from '@/components/CreateEventModal'
-import { Calendar, MapPin, Clock, Users, Plus, Edit, Trash2 } from 'lucide-react'
+import { useEvents } from '@/hooks/useEvents'
+import { useTranslation } from '@/hooks/useTranslation'
+import { Plus } from 'lucide-react'
 
-interface Event {
-  id: string
-  title: string
-  description: string
-  date: string
-  startTime: string
-  endTime: string
-  departure: string
-  arrival: string
-  aircraft: string
-  maxSlots: number
-  isActive: boolean
-  bookings: any[]
-}
-
-export default function EventsPage() {
-  const [events, setEvents] = useState<Event[]>([])
-  const [loading, setLoading] = useState(true)
+export default function EventsListPage() {
+  const { t } = useTranslation()
+  const { data, isLoading, hasNextPage, isFetchingNextPage, fetchNextPage, refetch } = useEvents()
   const [userRole, setUserRole] = useState<'PILOT' | 'ADMIN'>('PILOT')
   const [showCreateModal, setShowCreateModal] = useState(false)
 
+  const totalFound = data?.total || 0
+
   useEffect(() => {
-    fetchEvents()
     checkUserRole()
   }, [])
-
-  const fetchEvents = async () => {
-    try {
-      const response = await fetch('/api/events')
-      const data = await response.json()
-      setEvents(data.events || [])
-    } catch (error) {
-      console.error('Error fetching events:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
 
   const checkUserRole = () => {
     const token = localStorage.getItem('token')
@@ -65,7 +44,7 @@ export default function EventsPage() {
 
       if (response.ok) {
         alert('Successfully booked!')
-        fetchEvents()
+        refetch()
       } else {
         alert('Booking failed')
       }
@@ -74,126 +53,100 @@ export default function EventsPage() {
     }
   }
 
-  const handleDeleteEvent = async (eventId: string) => {
-    if (!confirm('Are you sure you want to delete this event?')) return
-
-    try {
-      const response = await fetch(`/api/events/${eventId}`, {
-        method: 'DELETE'
-      })
-
-      if (response.ok) {
-        fetchEvents()
-      } else {
-        alert('Failed to delete event')
-      }
-    } catch (error) {
-      alert('Error deleting event')
+  const getEventTypeName = (type?: string) => {
+    // Map event types to display names
+    const typeMap: Record<string, string> = {
+      'group_flight': 'Group Flight',
+      'event': 'Event',
+      'training': 'Training',
+      'tour': 'Tour'
     }
+    return typeMap[type || ''] || 'Event'
   }
 
   return (
-    <Layout>
-      <div className="p-6">
-        {/* Header */}
-        <div className="flex justify-between items-center mb-6">
-          <div>
-            <h1 className="text-3xl font-bold text-white mb-2">Events</h1>
-            <p className="text-gray-400">Browse and book virtual aviation events</p>
-          </div>
-          {userRole === 'ADMIN' && (
-            <button
-              onClick={() => setShowCreateModal(true)}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center"
-            >
-              <Plus className="mr-2" size={16} />
-              Create Event
-            </button>
-          )}
+    <EventListLayout>
+      {/* Header */}
+      <div className="flex justify-between items-center mb-6">
+        <div>
+          <h1 className="text-3xl font-bold text-white mb-2">{t('events')}</h1>
+          <p className="text-gray-400">{t('eventDetails')}</p>
         </div>
+        {userRole === 'ADMIN' && (
+          <Button
+            onClick={() => setShowCreateModal(true)}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center"
+          >
+            <Plus className="mr-2" size={16} />
+            {t('createEvent')}
+          </Button>
+        )}
+      </div>
 
-        {/* Events Grid */}
-        {loading ? (
-          <div className="text-center py-8">
-            <div className="text-gray-400">Loading events...</div>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {events.map((event) => (
-              <div key={event.id} className="bg-gray-800 rounded-lg p-6 hover:bg-gray-750 transition-colors">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-semibold text-white">{event.title}</h3>
-                  {userRole === 'ADMIN' && (
-                    <div className="flex space-x-2">
-                      <button className="text-gray-400 hover:text-white">
-                        <Edit size={16} />
-                      </button>
-                      <button 
-                        onClick={() => handleDeleteEvent(event.id)}
-                        className="text-gray-400 hover:text-red-400"
-                      >
-                        <Trash2 size={16} />
-                      </button>
-                    </div>
-                  )}
-                </div>
-
-                <p className="text-gray-400 mb-4">{event.description}</p>
-
-                <div className="space-y-2 mb-4">
-                  <div className="flex items-center text-sm text-gray-300">
-                    <Calendar className="mr-2" size={14} />
-                    {new Date(event.date).toLocaleDateString()}
-                  </div>
-                  <div className="flex items-center text-sm text-gray-300">
-                    <Clock className="mr-2" size={14} />
-                    {event.startTime} - {event.endTime}
-                  </div>
-                  <div className="flex items-center text-sm text-gray-300">
-                    <MapPin className="mr-2" size={14} />
-                    {event.departure} → {event.arrival}
-                  </div>
-                  <div className="flex items-center text-sm text-gray-300">
-                    <Users className="mr-2" size={14} />
-                    {event.bookings.length}/{event.maxSlots} slots
-                  </div>
-                </div>
-
-                <div className="text-sm text-gray-400 mb-4">
-                  Aircraft: {event.aircraft}
-                </div>
-
-                {userRole === 'PILOT' && (
-                  <button
-                    onClick={() => handleBookEvent(event.id)}
-                    disabled={event.bookings.length >= event.maxSlots}
-                    className={`w-full py-2 px-4 rounded-lg font-medium transition-colors ${
-                      event.bookings.length >= event.maxSlots
-                        ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
-                        : 'bg-blue-600 hover:bg-blue-700 text-white'
-                    }`}
-                  >
-                    {event.bookings.length >= event.maxSlots ? 'Fully Booked' : 'Book Event'}
-                  </button>
-                )}
-              </div>
+      {isLoading ? (
+        <LoadingIndicator />
+      ) : (
+        <>
+          <p className="font-header text-light-gray-2 dark:text-white text-center md:text-left mb-8">
+            {t('eventsFound').replace('{count}', totalFound.toString())}
+          </p>
+          
+          <div className="mt-8 flex flex-col md:flex-row gap-12 xl:gap-24 items-center md:items-start flex-wrap">
+            {data?.events.map((event) => (
+              <Fragment key={event.id}>
+                <EventCard
+                  eventId={event.id}
+                  imageSrc={event.banner}
+                  eventName={event.title}
+                  eventType={getEventTypeName(event.type)}
+                  description={event.description}
+                  date={event.date}
+                  startTime={event.startTime}
+                  endTime={event.endTime}
+                  departure={event.departure}
+                  arrival={event.arrival}
+                  aircraft={event.aircraft}
+                  maxSlots={event.maxSlots}
+                  bookedSlots={event.bookings.length}
+                  status={event.status || 'created'}
+                  tbd={event.status === 'created'}
+                  onBookEvent={handleBookEvent}
+                  userRole={userRole}
+                />
+              </Fragment>
             ))}
           </div>
-        )}
+          
+          {hasNextPage && (
+            <div className="flex justify-center mt-8">
+              {isFetchingNextPage ? (
+                <LoadingIndicator />
+              ) : (
+                <Button 
+                  variant="outline"
+                  onClick={() => fetchNextPage()}
+                  className="border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white"
+                >
+                  {t('loadMoreEvents')}
+                </Button>
+              )}
+            </div>
+          )}
+          
+          {data?.events.length === 0 && (
+            <div className="text-center py-8">
+              <div className="text-gray-400">{t('noEventsFound')}</div>
+            </div>
+          )}
+        </>
+      )}
 
-        {events.length === 0 && !loading && (
-          <div className="text-center py-8">
-            <div className="text-gray-400">No events available</div>
-          </div>
-        )}
-
-        {/* Create Event Modal */}
-        <CreateEventModal
-          isOpen={showCreateModal}
-          onClose={() => setShowCreateModal(false)}
-          onEventCreated={fetchEvents}
-        />
-      </div>
-    </Layout>
+      {/* Create Event Modal */}
+      <CreateEventModal
+        isOpen={showCreateModal}
+        onClose={() => setShowCreateModal(false)}
+        onEventCreated={refetch}
+      />
+    </EventListLayout>
   )
 }

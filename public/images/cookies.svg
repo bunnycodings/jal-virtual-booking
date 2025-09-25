@@ -1,0 +1,31 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="250" cy="250" r="200" fill="#FEF3C7" stroke="#F59E0B" stroke-width="4"/>
+  
+  <!-- Cookie Base -->
+  <circle cx="250" cy="250" r="180" fill="#FDE68A" stroke="#D97706" stroke-width="2"/>
+  
+  <!-- Chocolate Chips -->
+  <circle cx="200" cy="200" r="15" fill="#92400E"/>
+  <circle cx="300" cy="180" r="12" fill="#92400E"/>
+  <circle cx="180" cy="280" r="10" fill="#92400E"/>
+  <circle cx="320" cy="300" r="14" fill="#92400E"/>
+  <circle cx="220" cy="320" r="11" fill="#92400E"/>
+  <circle cx="280" cy="220" r="13" fill="#92400E"/>
+  <circle cx="150" cy="250" r="9" fill="#92400E"/>
+  <circle cx="350" cy="250" r="12" fill="#92400E"/>
+  <circle cx="250" cy="150" r="10" fill="#92400E"/>
+  <circle cx="250" cy="350" r="11" fill="#92400E"/>
+  
+  <!-- Cookie Texture Lines -->
+  <path d="M150 200 Q250 180 350 200" stroke="#D97706" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M150 300 Q250 320 350 300" stroke="#D97706" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M200 150 Q200 250 200 350" stroke="#D97706" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M300 150 Q300 250 300 350" stroke="#D97706" stroke-width="2" fill="none" opacity="0.3"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="100" cy="100" r="20" fill="#FEF3C7" opacity="0.5"/>
+  <circle cx="400" cy="100" r="25" fill="#FEF3C7" opacity="0.5"/>
+  <circle cx="100" cy="400" r="18" fill="#FEF3C7" opacity="0.5"/>
+  <circle cx="400" cy="400" r="22" fill="#FEF3C7" opacity="0.5"/>
+</svg>
