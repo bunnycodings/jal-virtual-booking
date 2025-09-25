@@ -1,4 +1,4 @@
-import { Translations } from './en'
+import { Translations } from '@/i18n/types'
 
 const itTranslations: { translations: Translations } = {
   translations: {
@@ -83,12 +83,51 @@ const itTranslations: { translations: Translations } = {
     confirm: 'Conferma',
     loginSuccess: 'Accesso riuscito',
     loginError: 'Accesso fallito',
+    logoutSuccess: 'Disconnessione riuscita',
+    logoutError: 'Disconnessione fallita',
     bookingCreated: 'Prenotazione creata con successo',
     bookingCancelled: 'Prenotazione annullata',
     eventCreated: 'Evento creato con successo',
     eventUpdated: 'Evento aggiornato con successo',
     eventDeleted: 'Evento eliminato con successo',
     profileUpdated: 'Profilo aggiornato con successo',
+    
+    // Errors
+    errors: {
+      general: {
+        title: 'Qualcosa è andato storto',
+        subtitle: 'Si è verificato un errore imprevisto. Riprova.'
+      },
+      network: {
+        title: 'Errore di connessione',
+        subtitle: 'Impossibile connettersi al server. Controlla la tua connessione internet.'
+      },
+      auth: {
+        title: 'Errore di autenticazione',
+        subtitle: 'La tua sessione è scaduta. Reindirizzamento al login...'
+      },
+      notFound: {
+        title: 'Pagina non trovata',
+        subtitle: 'La pagina che stai cercando non esiste o è stata spostata.'
+      },
+      retry: 'Riprova',
+      backToHome: 'Torna alla home',
+      backToDashboard: 'Torna alla dashboard'
+    },
+    
+    // Cookie Consent
+    cookies: {
+      title: 'Consenso ai cookie',
+      subtitle: 'Utilizziamo i cookie per migliorare la tua esperienza e analizzare il nostro traffico. Continuando a utilizzare il nostro sito, acconsenti al nostro utilizzo dei cookie.',
+      authorizeUse: 'Accetta tutti i cookie',
+      continueWithout: 'Continua senza cookie',
+      learnMore: 'Scopri di più',
+      necessary: 'Necessario',
+      analytics: 'Analitiche',
+      marketing: 'Marketing',
+      preferences: 'Preferenze'
+    },
+    
     copyright: '© 2024 Japan Airlines Virtual',
     jalVirtual: 'JAL Virtual',
     bookingSystem: 'Sistema di prenotazione',

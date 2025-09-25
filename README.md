@@ -1,284 +1,117 @@
 # JAL Virtual Booking System
 
-A modern, feature-rich flight booking system for Japan Airlines Virtual, inspired by the [IVAO Brazil booking system](https://github.com/ivao-brasil/booking.br.ivao.aero). Built with Next.js, TypeScript, and Tailwind CSS.
+A modern, multi-language virtual flight booking system for Japan Airlines Virtual, enhanced with features from the KRONOS booking system.
 
 ## ✨ Features
 
-### 🎨 **Modern UI/UX**
-- **Dark & Light Themes** - Seamless theme switching with system preference detection
-- **Animated Interface** - Smooth animations powered by Framer Motion
-- **Responsive Design** - Works perfectly on desktop, tablet, and mobile devices
-- **Glass Morphism** - Modern backdrop blur effects and translucent elements
+### 🌍 Multi-Language Support
+- **7 Languages**: English, Japanese, Portuguese, French, Spanish, German, Italian
+- **Auto-detection**: Automatically detects user's browser language
+- **Language switching**: Easy language switcher in the navigation
+- **Fallback system**: Graceful fallback to English if translation is missing
 
-### 🌍 **Internationalization (i18n)**
-- **7 Languages Supported** - English, Japanese, Portuguese, French, Spanish, German, Italian
-- **Dynamic Language Switching** - Change language on-the-fly without page reload
-- **RTL Support Ready** - Architecture prepared for right-to-left languages
-- **Localized Content** - All UI text, dates, and numbers properly localized
+### 🎨 Theme System
+- **Dark/Light modes**: Seamless theme switching
+- **System preference**: Automatically detects user's system theme preference
+- **Persistent**: Remembers user's theme choice
+- **Smooth transitions**: Beautiful transitions between themes
 
-### 🔐 **Authentication System**
-- **JAL Pilot ID Login** - Simple pilot authentication using JAL Virtual API
-- **Admin Email/Password** - Traditional admin authentication
-- **JWT Token Security** - Secure session management
-- **API Integration** - Real-time pilot data from JAL Virtual API
+### 🚀 Enhanced UI Components
+- **Modern Design**: Clean, modern interface inspired by KRONOS
+- **Responsive**: Works perfectly on desktop, tablet, and mobile
+- **Accessible**: Built with accessibility in mind
+- **Custom Components**: Button, Input, Card, LoadingIndicator, and more
 
-### ✈️ **Flight Management**
-- **Event Creation** - Admins can create and manage flight events
-- **Booking System** - Pilots can book flights with real-time availability
-- **Flight Confirmation Flow** - Beautiful confirmation process with boarding pass generation
-- **Boarding Pass Component** - Professional boarding pass with barcode and flight details
+### 🔐 Authentication
+- **JAL API Integration**: Preserved existing JAL API authentication
+- **Secure**: Maintains all existing security features
+- **User Management**: Full user management capabilities
 
-### 👥 **User Management**
-- **Suspension System** - Admin can suspend users with reason tracking
-- **Role-Based Access** - Pilot and Admin roles with different permissions
-- **User Profiles** - Complete pilot information management
-- **Activity Tracking** - Monitor user activity and booking history
+## 🛠️ Technology Stack
 
-### 📱 **Mobile Support**
-- **Touch-Friendly Interface** - Optimized for mobile devices
-- **Responsive Layouts** - Adaptive design for all screen sizes
-- **Mobile Navigation** - Intuitive mobile navigation patterns
+- **Framework**: Next.js 15 with App Router
+- **Styling**: Tailwind CSS with custom theme system
+- **Internationalization**: react-i18next with language detection
+- **Icons**: Lucide React icons
+- **TypeScript**: Full TypeScript support
+- **Database**: Prisma with SQLite
 
-## 🚀 Quick Start
+## 🚀 Getting Started
 
-### Prerequisites
-- Node.js 18+ 
-- npm or yarn
-- JAL Virtual API access
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd jal-virtual-booking
-   ```
-
-2. **Install dependencies**
+1. **Install dependencies**:
    ```bash
    npm install
    ```
 
-3. **Set up environment variables**
+2. **Set up environment variables**:
    ```bash
-   cp env.example .env
-   ```
-   
-   Update the `.env` file with your configuration:
-   ```env
-   DATABASE_URL="file:./dev.db"
-   JWT_SECRET="your-super-secret-jwt-key"
-   JAL_API_URL="https://crew.jalvirtual.com/api"
-   ADMIN_EMAIL="admin@jalvirtual.com"
-   ADMIN_PASSWORD="admin123"
+   cp .env.example .env.local
+   # Edit .env.local with your configuration
    ```
 
-4. **Set up the database**
-   ```bash
-   npm run db:generate
-   npm run db:push
-   npm run db:seed
-   ```
-
-5. **Start the development server**
+3. **Run the development server**:
    ```bash
    npm run dev
    ```
 
-6. **Open your browser**
+4. **Open your browser**:
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-## 🛠️ Technology Stack
+## 🌐 Language Support
 
-- **Frontend**: Next.js 15, React 19, TypeScript
-- **Styling**: Tailwind CSS 4, Framer Motion
-- **Database**: SQLite with Prisma ORM
-- **Authentication**: JWT with bcrypt
-- **Internationalization**: react-i18next
-- **API Integration**: JAL Virtual API
+| Language | Code | Status | Flag |
+|----------|------|--------|------|
+| English | `en` | ✅ Complete | 🇺🇸 |
+| Japanese | `ja` | ✅ Complete | 🇯🇵 |
+| Portuguese | `pt` | ✅ Complete | 🇵🇹 |
+| French | `fr` | ✅ Complete | 🇫🇷 |
+| Spanish | `es` | ✅ Complete | 🇪🇸 |
+| German | `de` | ✅ Complete | 🇩🇪 |
+| Italian | `it` | ✅ Complete | 🇮🇹 |
 
-## 📁 Project Structure
+## 🎨 Theme Customization
 
-```
-src/
-├── app/                    # Next.js app router
-│   ├── api/               # API routes
-│   ├── login/             # Login page
-│   └── layout.tsx         # Root layout
-├── components/            # Reusable components
-│   ├── BoardingPass.tsx   # Boarding pass component
-│   ├── FlightConfirmation.tsx # Flight confirmation flow
-│   └── LanguageSelector.tsx  # Language switcher
-├── contexts/              # React contexts
-│   ├── ThemeContext.tsx   # Theme management
-│   └── LanguageContext.tsx # Language management
-├── i18n/                  # Internationalization
-│   ├── locales/           # Translation files
-│   └── index.ts          # i18n configuration
-├── lib/                   # Utility libraries
-│   ├── auth.ts           # Authentication utilities
-│   └── prisma.ts         # Database client
-└── prisma/               # Database schema
-    └── schema.prisma     # Prisma schema
-```
+The theme system supports:
+- **Light Mode**: Clean, bright interface
+- **Dark Mode**: Easy-on-the-eyes dark interface
+- **Auto-detection**: Respects system preferences
+- **Manual switching**: Easy theme switcher in navigation
 
-## 🌐 Supported Languages
+## 📱 Responsive Design
 
-| Language | Code | Status | Contributors |
-|----------|------|--------|-------------|
-| English | en | ✅ Complete | Core Team |
-| Japanese | ja | ✅ Complete | Core Team |
-| Portuguese | pt | ✅ Complete | Core Team |
-| French | fr | ✅ Complete | Core Team |
-| Spanish | es | ✅ Complete | Core Team |
-| German | de | ✅ Complete | Core Team |
-| Italian | it | ✅ Complete | Core Team |
+- **Mobile-first**: Optimized for mobile devices
+- **Tablet support**: Great experience on tablets
+- **Desktop**: Full-featured desktop experience
+- **Touch-friendly**: Optimized for touch interactions
 
-## 🔧 API Endpoints
+## 🔧 Development
 
-### Authentication
-- `POST /api/auth/pilot-login` - Pilot authentication with JAL API
-- `POST /api/auth/admin-login` - Admin authentication
-- `GET /api/user` - Get current user profile
+### Adding New Languages
 
-### Events
-- `GET /api/events` - List all events
-- `POST /api/events` - Create new event (admin only)
-- `DELETE /api/events/[id]` - Delete event (admin only)
+1. Create a new translation file in `src/i18n/locales/[language].ts`
+2. Add the language to the `languages` array in `LanguageSwitcher.tsx`
+3. Update the `resources` object in `src/i18n/index.ts`
 
-### Bookings
-- `GET /api/bookings` - List user bookings (or all for admin)
-- `POST /api/bookings` - Create new booking
-- `DELETE /api/bookings/[id]` - Cancel booking
+### Customizing Themes
 
-### Flights
-- `GET /api/flights` - List flights with optional type filter
+Themes are managed in `src/contexts/ThemeContext.tsx` and use Tailwind CSS classes. You can customize colors and styles by modifying the Tailwind configuration.
 
-## 🎨 Theme System
+### Adding New Components
 
-The application supports both dark and light themes with automatic system preference detection:
-
-```typescript
-import { useTheme } from '@/contexts/ThemeContext'
-
-function MyComponent() {
-  const { theme, toggleTheme, setTheme } = useTheme()
-  
-  return (
-    <button onClick={toggleTheme}>
-      Switch to {theme === 'dark' ? 'light' : 'dark'} theme
-    </button>
-  )
-}
-```
-
-## 🌍 Language System
-
-Easy language switching with full i18n support:
-
-```typescript
-import { useLanguage } from '@/contexts/LanguageContext'
-
-function MyComponent() {
-  const { language, setLanguage, t } = useLanguage()
-  
-  return (
-    <div>
-      <h1>{t('dashboard')}</h1>
-      <button onClick={() => setLanguage('ja')}>
-        Switch to Japanese
-      </button>
-    </div>
-  )
-}
-```
-
-## 📱 Mobile Features
-
-- **Touch Gestures**: Swipe navigation and touch-friendly interactions
-- **Responsive Breakpoints**: Optimized for phones, tablets, and desktops
-- **Mobile-First Design**: Built with mobile users in mind
-- **Progressive Web App**: Ready for PWA implementation
-
-## 🔒 Security Features
-
-- **JWT Authentication**: Secure token-based authentication
-- **Password Hashing**: bcrypt for secure password storage
-- **API Rate Limiting**: Protection against abuse
-- **Input Validation**: Comprehensive input sanitization
-- **CORS Protection**: Secure cross-origin requests
-
-## 🚀 Deployment
-
-### Production Setup
-
-1. **Environment Variables**
-   ```env
-   DATABASE_URL="your-production-database-url"
-   JWT_SECRET="your-production-jwt-secret"
-   JAL_API_URL="https://crew.jalvirtual.com/api"
-   ```
-
-2. **Database Migration**
-   ```bash
-   npm run db:push
-   npm run db:seed
-   ```
-
-3. **Build and Start**
-   ```bash
-   npm run build
-   npm run start
-   ```
-
-### Docker Deployment
-
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-COPY . .
-RUN npm run build
-EXPOSE 3000
-CMD ["npm", "start"]
-```
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our contributing guidelines:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Development Guidelines
-
-- Follow TypeScript best practices
-- Use Tailwind CSS for styling
-- Write tests for new features
-- Update documentation as needed
-- Follow the existing code style
+All UI components are located in `src/components/ui/` and follow a consistent pattern. Use the existing components as templates for new ones.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙏 Acknowledgments
+## 🤝 Contributing
 
-- Inspired by [IVAO Brazil Booking System](https://github.com/ivao-brasil/booking.br.ivao.aero)
-- Built with modern web technologies
-- Designed for the aviation community
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📞 Support
 
-For support and questions:
-- Create an issue on GitHub
-- Contact the development team
-- Check the documentation
+For support, please contact the development team or create an issue in the repository.
 
 ---
 
-**JAL Virtual Booking System** - Modern flight booking for the virtual aviation community ✈️
+**Built with ❤️ for Japan Airlines Virtual**

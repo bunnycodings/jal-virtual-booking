@@ -6,8 +6,18 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url)
     const type = searchParams.get('type')
 
+    // Map frontend type values to Prisma enum values
+    let flightType: 'DEPARTURE' | 'ARRIVAL' | undefined
+    if (type === 'DEPARTURES') {
+      flightType = 'DEPARTURE'
+    } else if (type === 'ARRIVALS') {
+      flightType = 'ARRIVAL'
+    } else if (type === 'DEPARTURE' || type === 'ARRIVAL') {
+      flightType = type as 'DEPARTURE' | 'ARRIVAL'
+    }
+
     const flights = await prisma.flight.findMany({
-      where: type ? { type: type as 'DEPARTURE' | 'ARRIVAL' } : {},
+      where: flightType ? { type: flightType } : {},
       orderBy: { departureTime: 'asc' }
     })
 

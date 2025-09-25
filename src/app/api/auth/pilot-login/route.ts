@@ -66,8 +66,21 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Pilot login error:', error)
+    
+    // Provide user-friendly error messages
+    let errorMessage = 'Invalid JAL Pilot ID'
+    if (error instanceof Error) {
+      if (error.message.includes('Invalid JAL Pilot ID')) {
+        errorMessage = 'Invalid JAL Pilot ID. Please check your credentials.'
+      } else if (error.message.includes('JAL API')) {
+        errorMessage = 'Unable to verify pilot credentials. Please try again.'
+      } else {
+        errorMessage = 'Login failed. Please try again.'
+      }
+    }
+    
     return NextResponse.json({ 
-      error: error instanceof Error ? error.message : 'Invalid JAL Pilot ID' 
+      error: errorMessage
     }, { status: 401 })
   }
 }

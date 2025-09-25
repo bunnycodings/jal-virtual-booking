@@ -1,4 +1,4 @@
-import { Translations } from './en'
+import { Translations } from '@/i18n/types'
 
 const jaTranslations: { translations: Translations } = {
   translations: {
@@ -61,7 +61,6 @@ const jaTranslations: { translations: Translations } = {
     status: 'ステータス',
     onTime: '定時',
     delayed: '遅延',
-    cancelled: 'キャンセル',
     
     // Profile
     personalInfo: '個人情報',
@@ -101,12 +100,50 @@ const jaTranslations: { translations: Translations } = {
     // Messages
     loginSuccess: 'ログインに成功しました',
     loginError: 'ログインに失敗しました',
+    logoutSuccess: 'ログアウトに成功しました',
+    logoutError: 'ログアウトに失敗しました',
     bookingCreated: '予約が正常に作成されました',
     bookingCancelled: '予約がキャンセルされました',
     eventCreated: 'イベントが正常に作成されました',
     eventUpdated: 'イベントが正常に更新されました',
     eventDeleted: 'イベントが正常に削除されました',
     profileUpdated: 'プロフィールが正常に更新されました',
+    
+    // Errors
+    errors: {
+      general: {
+        title: 'エラーが発生しました',
+        subtitle: '予期しないエラーが発生しました。もう一度お試しください。'
+      },
+      network: {
+        title: '接続エラー',
+        subtitle: 'サーバーに接続できません。インターネット接続を確認してください。'
+      },
+      auth: {
+        title: '認証エラー',
+        subtitle: 'セッションの有効期限が切れました。ログインページにリダイレクトしています...'
+      },
+      notFound: {
+        title: 'ページが見つかりません',
+        subtitle: 'お探しのページは存在しないか、移動された可能性があります。'
+      },
+      retry: '再試行',
+      backToHome: 'ホームに戻る',
+      backToDashboard: 'ダッシュボードに戻る'
+    },
+    
+    // Cookie Consent
+    cookies: {
+      title: 'クッキー同意',
+      subtitle: 'ユーザー体験を向上させ、トラフィックを分析するためにクッキーを使用しています。サイトを継続使用することで、クッキーの使用に同意したものとみなされます。',
+      authorizeUse: 'すべてのクッキーを受け入れる',
+      continueWithout: 'クッキーなしで続行',
+      learnMore: '詳細を見る',
+      necessary: '必須',
+      analytics: '分析',
+      marketing: 'マーケティング',
+      preferences: '設定'
+    },
     
     // Footer
     copyright: '© 2024 日本航空バーチャル',

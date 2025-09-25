@@ -1,115 +1,4 @@
-export interface Translations {
-  // Navigation
-  dashboard: string
-  events: string
-  bookings: string
-  flights: string
-  profile: string
-  users: string
-  logout: string
-  
-  // Login
-  pilotLogin: string
-  adminLogin: string
-  jalPilotId: string
-  email: string
-  password: string
-  login: string
-  signingIn: string
-  switchToAdmin: string
-  switchToPilot: string
-  
-  // Events
-  upcomingEvents: string
-  pastEvents: string
-  createEvent: string
-  editEvent: string
-  deleteEvent: string
-  eventTitle: string
-  eventDescription: string
-  eventDate: string
-  startTime: string
-  endTime: string
-  departure: string
-  arrival: string
-  aircraft: string
-  maxSlots: string
-  availableSlots: string
-  bookedSlots: string
-  
-  // Bookings
-  myBookings: string
-  allBookings: string
-  createBooking: string
-  cancelBooking: string
-  bookingStatus: string
-  pending: string
-  confirmed: string
-  cancelled: string
-  rejected: string
-  
-  // Flights
-  departures: string
-  arrivals: string
-  flightNumber: string
-  aircraftType: string
-  gate: string
-  terminal: string
-  status: string
-  onTime: string
-  delayed: string
-  cancelled: string
-  
-  // Profile
-  personalInfo: string
-  firstName: string
-  lastName: string
-  callsign: string
-  jalId: string
-  role: string
-  pilot: string
-  admin: string
-  
-  // Users
-  allUsers: string
-  searchUsers: string
-  userRole: string
-  joinDate: string
-  lastActive: string
-  
-  // Common
-  save: string
-  cancel: string
-  delete: string
-  edit: string
-  create: string
-  search: string
-  filter: string
-  clear: string
-  loading: string
-  error: string
-  success: string
-  warning: string
-  info: string
-  yes: string
-  no: string
-  confirm: string
-  
-  // Messages
-  loginSuccess: string
-  loginError: string
-  bookingCreated: string
-  bookingCancelled: string
-  eventCreated: string
-  eventUpdated: string
-  eventDeleted: string
-  profileUpdated: string
-  
-  // Footer
-  copyright: string
-  jalVirtual: string
-  bookingSystem: string
-}
+import { Translations } from '@/i18n/types'
 
 const enTranslations: { translations: Translations } = {
   translations: {
@@ -172,7 +61,6 @@ const enTranslations: { translations: Translations } = {
     status: 'Status',
     onTime: 'On Time',
     delayed: 'Delayed',
-    cancelled: 'Cancelled',
     
     // Profile
     personalInfo: 'Personal Information',
@@ -212,12 +100,50 @@ const enTranslations: { translations: Translations } = {
     // Messages
     loginSuccess: 'Login successful',
     loginError: 'Login failed',
+    logoutSuccess: 'Logout successful',
+    logoutError: 'Logout failed',
     bookingCreated: 'Booking created successfully',
     bookingCancelled: 'Booking cancelled',
     eventCreated: 'Event created successfully',
     eventUpdated: 'Event updated successfully',
     eventDeleted: 'Event deleted successfully',
     profileUpdated: 'Profile updated successfully',
+    
+    // Errors
+    errors: {
+      general: {
+        title: 'Something went wrong',
+        subtitle: 'An unexpected error occurred. Please try again.'
+      },
+      network: {
+        title: 'Connection Error',
+        subtitle: 'Unable to connect to the server. Please check your internet connection.'
+      },
+      auth: {
+        title: 'Authentication Error',
+        subtitle: 'Your session has expired. Redirecting to login...'
+      },
+      notFound: {
+        title: 'Page Not Found',
+        subtitle: 'The page you are looking for does not exist or has been moved.'
+      },
+      retry: 'Try Again',
+      backToHome: 'Back to Home',
+      backToDashboard: 'Back to Dashboard'
+    },
+    
+    // Cookie Consent
+    cookies: {
+      title: 'Cookie Consent',
+      subtitle: 'We use cookies to enhance your experience and analyze our traffic. By continuing to use our site, you consent to our use of cookies.',
+      authorizeUse: 'Accept All Cookies',
+      continueWithout: 'Continue Without Cookies',
+      learnMore: 'Learn More',
+      necessary: 'Necessary',
+      analytics: 'Analytics',
+      marketing: 'Marketing',
+      preferences: 'Preferences'
+    },
     
     // Footer
     copyright: '© 2024 Japan Airlines Virtual',

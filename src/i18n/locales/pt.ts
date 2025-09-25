@@ -1,4 +1,4 @@
-import { Translations } from './en'
+import { Translations } from '@/i18n/types'
 
 const ptTranslations: { translations: Translations } = {
   translations: {
@@ -83,12 +83,51 @@ const ptTranslations: { translations: Translations } = {
     confirm: 'Confirmar',
     loginSuccess: 'Login realizado com sucesso',
     loginError: 'Falha no login',
+    logoutSuccess: 'Logout realizado com sucesso',
+    logoutError: 'Falha no logout',
     bookingCreated: 'Reserva criada com sucesso',
     bookingCancelled: 'Reserva cancelada',
     eventCreated: 'Evento criado com sucesso',
     eventUpdated: 'Evento atualizado com sucesso',
     eventDeleted: 'Evento excluído com sucesso',
     profileUpdated: 'Perfil atualizado com sucesso',
+    
+    // Errors
+    errors: {
+      general: {
+        title: 'Algo deu errado',
+        subtitle: 'Ocorreu um erro inesperado. Tente novamente.'
+      },
+      network: {
+        title: 'Erro de conexão',
+        subtitle: 'Não foi possível conectar ao servidor. Verifique sua conexão com a internet.'
+      },
+      auth: {
+        title: 'Erro de autenticação',
+        subtitle: 'Sua sessão expirou. Redirecionando para o login...'
+      },
+      notFound: {
+        title: 'Página não encontrada',
+        subtitle: 'A página que você está procurando não existe ou foi movida.'
+      },
+      retry: 'Tentar novamente',
+      backToHome: 'Voltar ao início',
+      backToDashboard: 'Voltar ao painel'
+    },
+    
+    // Cookie Consent
+    cookies: {
+      title: 'Consentimento de cookies',
+      subtitle: 'Usamos cookies para melhorar sua experiência e analisar nosso tráfego. Ao continuar usando nosso site, você consente com nosso uso de cookies.',
+      authorizeUse: 'Aceitar todos os cookies',
+      continueWithout: 'Continuar sem cookies',
+      learnMore: 'Saiba mais',
+      necessary: 'Necessário',
+      analytics: 'Analíticas',
+      marketing: 'Marketing',
+      preferences: 'Preferências'
+    },
+    
     copyright: '© 2024 Japan Airlines Virtual',
     jalVirtual: 'JAL Virtual',
     bookingSystem: 'Sistema de Reservas',

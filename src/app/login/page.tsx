@@ -71,7 +71,7 @@ export default function LoginPage() {
         if (loginType === 'pilot' && data.pilotId) {
           localStorage.setItem('pilotId', data.pilotId)
         }
-        router.push('/')
+        router.push('/dashboard')
       } else {
         setError(data.error || 'Login failed')
       }

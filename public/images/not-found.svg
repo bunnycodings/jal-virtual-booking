@@ -1,0 +1,38 @@
+<svg width="437" height="480" viewBox="0 0 437 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="218.5" cy="240" r="200" fill="#E5E7EB" fill-opacity="0.3"/>
+  
+  <!-- Globe/World Icon -->
+  <g transform="translate(118.5, 140)">
+    <!-- Globe Base -->
+    <circle cx="100" cy="100" r="80" fill="#3B82F6" fill-opacity="0.1" stroke="#3B82F6" stroke-width="2"/>
+    
+    <!-- Longitude Lines -->
+    <path d="M20 100 Q100 60 180 100" stroke="#3B82F6" stroke-width="2" fill="none"/>
+    <path d="M20 100 Q100 140 180 100" stroke="#3B82F6" stroke-width="2" fill="none"/>
+    
+    <!-- Latitude Lines -->
+    <ellipse cx="100" cy="100" rx="60" ry="20" fill="none" stroke="#3B82F6" stroke-width="2"/>
+    <ellipse cx="100" cy="100" rx="40" ry="15" fill="none" stroke="#3B82F6" stroke-width="2"/>
+    
+    <!-- Center Dot -->
+    <circle cx="100" cy="100" r="4" fill="#3B82F6"/>
+  </g>
+  
+  <!-- Question Mark -->
+  <g transform="translate(200, 200)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="120" font-weight="bold" fill="#EF4444" text-anchor="middle">?</text>
+  </g>
+  
+  <!-- Search Icon -->
+  <g transform="translate(300, 300)">
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#6B7280" stroke-width="3"/>
+    <line x1="20" y1="20" x2="40" y2="40" stroke="#6B7280" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Plane Icon -->
+  <g transform="translate(150, 350)">
+    <path d="M0 20 L40 20 L50 10 L60 20 L50 30 L40 20" fill="#3B82F6" opacity="0.7"/>
+    <path d="M20 0 L30 20 L20 40" fill="#3B82F6" opacity="0.5"/>
+  </g>
+</svg>

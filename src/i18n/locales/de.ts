@@ -1,4 +1,4 @@
-import { Translations } from './en'
+import { Translations } from '@/i18n/types'
 
 const deTranslations: { translations: Translations } = {
   translations: {
@@ -83,12 +83,51 @@ const deTranslations: { translations: Translations } = {
     confirm: 'Bestätigen',
     loginSuccess: 'Anmeldung erfolgreich',
     loginError: 'Anmeldung fehlgeschlagen',
+    logoutSuccess: 'Abmeldung erfolgreich',
+    logoutError: 'Abmeldung fehlgeschlagen',
     bookingCreated: 'Buchung erfolgreich erstellt',
     bookingCancelled: 'Buchung storniert',
     eventCreated: 'Veranstaltung erfolgreich erstellt',
     eventUpdated: 'Veranstaltung erfolgreich aktualisiert',
     eventDeleted: 'Veranstaltung erfolgreich gelöscht',
     profileUpdated: 'Profil erfolgreich aktualisiert',
+    
+    // Errors
+    errors: {
+      general: {
+        title: 'Ein Fehler ist aufgetreten',
+        subtitle: 'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.'
+      },
+      network: {
+        title: 'Verbindungsfehler',
+        subtitle: 'Verbindung zum Server nicht möglich. Bitte überprüfen Sie Ihre Internetverbindung.'
+      },
+      auth: {
+        title: 'Authentifizierungsfehler',
+        subtitle: 'Ihre Sitzung ist abgelaufen. Weiterleitung zur Anmeldung...'
+      },
+      notFound: {
+        title: 'Seite nicht gefunden',
+        subtitle: 'Die gesuchte Seite existiert nicht oder wurde verschoben.'
+      },
+      retry: 'Erneut versuchen',
+      backToHome: 'Zurück zur Startseite',
+      backToDashboard: 'Zurück zum Dashboard'
+    },
+    
+    // Cookie Consent
+    cookies: {
+      title: 'Cookie-Einwilligung',
+      subtitle: 'Wir verwenden Cookies, um Ihre Erfahrung zu verbessern und unseren Traffic zu analysieren. Durch die weitere Nutzung unserer Website stimmen Sie der Verwendung von Cookies zu.',
+      authorizeUse: 'Alle Cookies akzeptieren',
+      continueWithout: 'Ohne Cookies fortfahren',
+      learnMore: 'Mehr erfahren',
+      necessary: 'Notwendig',
+      analytics: 'Analytik',
+      marketing: 'Marketing',
+      preferences: 'Einstellungen'
+    },
+    
     copyright: '© 2024 Japan Airlines Virtual',
     jalVirtual: 'JAL Virtual',
     bookingSystem: 'Buchungssystem',

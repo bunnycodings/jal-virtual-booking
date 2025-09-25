@@ -1,4 +1,4 @@
-import { Translations } from './en'
+import { Translations } from '@/i18n/types'
 
 const frTranslations: { translations: Translations } = {
   translations: {
@@ -83,12 +83,51 @@ const frTranslations: { translations: Translations } = {
     confirm: 'Confirmer',
     loginSuccess: 'Connexion réussie',
     loginError: 'Échec de la connexion',
+    logoutSuccess: 'Déconnexion réussie',
+    logoutError: 'Échec de la déconnexion',
     bookingCreated: 'Réservation créée avec succès',
     bookingCancelled: 'Réservation annulée',
     eventCreated: 'Événement créé avec succès',
     eventUpdated: 'Événement mis à jour avec succès',
     eventDeleted: 'Événement supprimé avec succès',
     profileUpdated: 'Profil mis à jour avec succès',
+    
+    // Errors
+    errors: {
+      general: {
+        title: 'Une erreur s\'est produite',
+        subtitle: 'Une erreur inattendue s\'est produite. Veuillez réessayer.'
+      },
+      network: {
+        title: 'Erreur de connexion',
+        subtitle: 'Impossible de se connecter au serveur. Veuillez vérifier votre connexion internet.'
+      },
+      auth: {
+        title: 'Erreur d\'authentification',
+        subtitle: 'Votre session a expiré. Redirection vers la connexion...'
+      },
+      notFound: {
+        title: 'Page non trouvée',
+        subtitle: 'La page que vous recherchez n\'existe pas ou a été déplacée.'
+      },
+      retry: 'Réessayer',
+      backToHome: 'Retour à l\'accueil',
+      backToDashboard: 'Retour au tableau de bord'
+    },
+    
+    // Cookie Consent
+    cookies: {
+      title: 'Consentement aux cookies',
+      subtitle: 'Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic. En continuant à utiliser notre site, vous consentez à notre utilisation des cookies.',
+      authorizeUse: 'Accepter tous les cookies',
+      continueWithout: 'Continuer sans cookies',
+      learnMore: 'En savoir plus',
+      necessary: 'Nécessaire',
+      analytics: 'Analytique',
+      marketing: 'Marketing',
+      preferences: 'Préférences'
+    },
+    
     copyright: '© 2024 Japan Airlines Virtual',
     jalVirtual: 'JAL Virtual',
     bookingSystem: 'Système de réservation',

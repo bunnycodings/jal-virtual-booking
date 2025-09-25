@@ -25,7 +25,7 @@ export default function Sidebar({ userRole = 'PILOT' }: SidebarProps) {
   const pathname = usePathname()
 
   const pilotMenuItems = [
-    { href: '/', icon: Home, label: 'Home' },
+    { href: '/dashboard', icon: Home, label: 'Home' },
     { href: '/events', icon: Calendar, label: 'Events' },
     { href: '/flights', icon: Plane, label: 'Flights' },
     { href: '/bookings', icon: ClipboardList, label: 'My Bookings' },
@@ -33,7 +33,7 @@ export default function Sidebar({ userRole = 'PILOT' }: SidebarProps) {
   ]
 
   const adminMenuItems = [
-    { href: '/', icon: Home, label: 'Home' },
+    { href: '/dashboard', icon: Home, label: 'Home' },
     { href: '/events', icon: Calendar, label: 'Events' },
     { href: '/flights', icon: Plane, label: 'Flights' },
     { href: '/bookings', icon: ClipboardList, label: 'All Bookings' },
